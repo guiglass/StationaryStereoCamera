@@ -4,8 +4,9 @@
 Due to some internal limitation with Unity I found that I was unable to stop Unity from stealing all of  my cameras and changing their transforms without supplying any option to disable the behavior. So out of frustration I just spent the entire night coming up with my own solution.
 
 **Video:**
-_Shows the HMD being rotated and moved around rapidly with no noticable jitter in the HUD overlay._
 [![Youtube Video](https://img.youtube.com/vi/04LxLfXjQHE/0.jpg)](https://www.youtube.com/watch?v=04LxLfXjQHE)
+_Shows the HMD being rotated and moved around rapidly with no noticable jitter in the HUD overlay._
+
 
 **Here’s how it works:**
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/SceneLayout.png)
