@@ -48,7 +48,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 * Create an empty game object and name it “StereoCameras” (This will be the parent of our left and right eye stationary cameras).
 * Drag that object into and make it a child of the “HUD” object.
 * Add two new cameras and name them as “Camera (Left)” and “Camera (Right)” (these are the cameras that only see things on the HUD layer.
-* Remove the “Audio Listener” components from both cameras (it is redundant and will cause warnings when the main camera is added).
+* Remove the “Audio Listener” components from both cameras (they are redundant and will cause warnings when the main camera is added).
 * Drag both cameras into the “StereoCameras” object.
 * Ensure the transform positions and rotations are all set to zero (you may separate them on x axis a little if you wish - this will not affect how the script positions them at runtime).
 * Remove “GUI Layer”, “Flare Layer” and “Audio Listener” components from both cameras as they are not required.
