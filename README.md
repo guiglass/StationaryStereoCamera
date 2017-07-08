@@ -28,7 +28,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 
 
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step2.png)
-**_Step 2 - Creating the HUD parent and camera objects._**
+**_Step 2 - Creating the custom stereo camera rig parent and camera objects._**
 
 * Add the two scripts (StereoCameraController.cs and StereoCameraPreRendere.cs) to the assets folder.
 * Create an empty game object and name it “HUD” (This will be the parent of our HUD world and stationary cameras).
