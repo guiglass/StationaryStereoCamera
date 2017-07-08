@@ -47,20 +47,20 @@ Note that this does support transparency as well as lights and shadows on the HU
 
 * Create an empty game object and name it “StereoCameras” (This will be the parent of our left and right eye stationary cameras).
 * Drag that object into and make it a child of the “HUD” object.
-* Add two new cameras and name them as “Camera (Left)” and “Camera (Right)” (these are the cameras that only see things on the HUD layer.
+* Add two new cameras and name them as “Camera (Left)” and “Camera (Right)” (these are the cameras that only see things on the HUD layer).
 * Drag both cameras into the “StereoCameras” object.
-* Ensure the transform positions and rotations are all set to zero (you may separate them on x axis a little if you wish - this will not affect how the script positions them at runtime).
+* Ensure the transform positions and rotations are all set to zero (you may separate the two cameras on the x axis a little if you wish - this will not affect how the script positions them at runtime).
 * Remove “GUI Layer”, “Flare Layer” and “Audio Listener” components from both cameras as they are not required.
 * Set the Clear Flags to solid color, and select a color of black and no alpha (#00000000).
-* Add a new layer called “HUD” (any object on is layer will be visible to these cameras.
-* Set Culling mask to the “HUD” layer only. 
+* Add a new layer called “HUD” (any object on is layer will be visible to these cameras only).
+* Set the Culling mask to be “HUD” layer only. 
 
 
 
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step4.png)
 **_Step 4 - Create renderTextures for left and right eyes._**
 
-* Right click in your project’s asset folder and create a new renderTexture (we will copy it  for both eyes later on).
+* Right click in your project’s asset folder and create a single new renderTexture (we will copy it  for both eyes later on).
 * Set the Size parameter to 1920x1920 (This is what I chose but can be changed as desired).
 * Set Anti-Aliasing to some value (I chose 8 samples but again, you can decide).
 * Set Color Format to ARGB Half, (I believe this is the native format used by cameras??).
@@ -75,7 +75,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 **_Step 5 - Adding the StereoCameraController script and linking the two stereo cameras._**
 
 * Place the StereoCameraController.cs script onto the StereoCameras object.
-* Drag each Camera (Left) and Camera (Right) and place them in the script’s camera variables.
+* Drag each Camera (Left) and Camera (Right) and place them in the script’s "Camera" variables.
 * The other default values are there to be adjusted but should work ok for most projects (as well as this example).
 
 
@@ -83,7 +83,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step6.png)
 **_Step 6 - Adding the StereoCameraPreRenderer script and linking the two renderTextures._**
 
-* Drag the StereoCameraPreRendere.cs script onto the “Camera (HUD)” object.
+* Drag the StereoCameraPreRenderer.cs script onto the “Camera (HUD)” object.
 * Drag each “camLeft” and “camRight” renderTextures and place them in the script’s corresponding “TexLeft“ and “TexRight” variables.
 * Click the small circle button to the right of “Mat” and select “Default-Particle”.
 
@@ -118,7 +118,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 
 Something to consider when it come to lighting is that you may want to manage the Culling Masks for lights and make sure your main world’s lights do not include the HUD layer (especially the Directional Lights and area lamps). Additionally you can add lighting to you HUD layer by setting the lamp’s Culling Mask to only HUD layer.
 
-Please feel free to use this example any way you wish (without restriction of any kind) as well as redistribute, modify and share it with all of your friends and co-workers.
+Please feel free to use this example in any way you see fit (without restriction of any kind) as well as redistribute, modify and share it with all of your friends and co-workers.
 
 Legal notice:
 By downloading or using any resource from this example you agree that I (the author) am not liable for any losses or damages due to the use of any part(s) of the content in this example. It is distributed as is and without any warranty or guarantees. 
