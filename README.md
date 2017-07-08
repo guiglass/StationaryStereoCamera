@@ -1,5 +1,5 @@
 # Stationary Stereo Camera
-## Workaround To Disabling Head-Tracking On A Camera in Unity.
+### Workaround To Disabling Head-Tracking On A Camera in Unity.
 
 Due to some internal limitation with Unity I found that I was unable to stop Unity from stealing all of  my cameras and changing their transforms without supplying any option to disable the behavior. So out of frustration I just spent the entire night coming up with my own solution.
 
@@ -16,7 +16,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 **Configure the scene from scratch (OpenVR already installed):**
 
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step1.png)
-*Step 1 - Scene creating and virtual reality setup.*
+**_Step 1 - Scene creating and virtual reality setup._**
 
 *Create a new Unity project and name it StereoCameraOverlay.
 *Press Ctrl+S and save the scene as “ExampleScene”
@@ -27,7 +27,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 
 
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step2.png)
-*Step 2 - Creating the HUD parent and camera objects.*
+**_Step 2 - Creating the HUD parent and camera objects._**
 
 *Add the two scripts (StereoCameraController.cs and StereoCameraPreRendere.cs) to the assets folder.
 *Create an empty game object and name it “HUD” (This will be the parent of our HUD world and stationary cameras).
@@ -41,7 +41,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 
 
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step3.png)
-*Step 3 - Create and setting up the stationary stereo camera.*
+**_Step 3 - Create and setting up the stationary stereo camera._**
 
 *Create an empty game object and name it “StereoCameras” (This will be the parent of our left and right eye stationary cameras).
 *Drag that object into and make it a child of the “HUD” object.
@@ -55,7 +55,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 
 
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step4.png)
-*Step 4 - Create renderTextures for left and right eyes.*
+**_Step 4 - Create renderTextures for left and right eyes._**
 
 *Right click in your project’s asset folder and create a new renderTexture (we will copy it  for both eyes later on).
 *Set the Size parameter to 1920x1920 (This is what I chose but can be changed as desired).
@@ -68,7 +68,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 
 
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step5.png)
-*Step 5 - Adding the StereoCameraController script and linking the two stereo cameras.*
+**_Step 5 - Adding the StereoCameraController script and linking the two stereo cameras._**
 
 *Place the StereoCameraController.cs script onto the StereoCameras object.
 *Drag each Camera (Left) and Camera (Right) and place them in the script’s camera variables.
@@ -76,7 +76,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 
 
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step6.png)
-*Step 6 - Adding the StereoCameraPreRenderer script and linking the two renderTextures.*
+**_Step 6 - Adding the StereoCameraPreRenderer script and linking the two renderTextures._**
 
 *Drag the StereoCameraPreRendere.cs script onto the “Camera (HUD)” object.
 *Drag each “camLeft” and “camRight” renderTextures and place them in the script’s corresponding “TexLeft“ and “TexRight” variables.
@@ -84,7 +84,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 
 
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step7.png)
-*Step 7 - Adding the main camera.*
+**_Step 7 - Adding the main camera._**
 
 *Create a camera and name it “Camera (eye)” (this is the tracked main camera that renders the world to the HMD).
 *Set the Culling Mask however you wish except make sure that the “HUD” layer is not selected.
@@ -92,7 +92,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 
 
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step8.png)
-*Step 8 - Adding some visible HUD objects.*
+**_Step 8 - Adding some visible HUD objects._**
 
 *Add some 3dText or meshes to your scene, then for each of them simply change their layer to “HUD”. This will make them visible to only the two stereo cameras.
 *Make those object children of the “HUD” object in the hierarchy (optional really..).
@@ -100,7 +100,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 
 
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step9.png)
-*Step 9 - Adding some visible world objects.*
+**_Step 9 - Adding some visible world objects._**
 
 *Just as you normally would add objects to your scene, do so and place then anywhere in the scene (I have placed them near my HUD to demonstrate how the two cameras can’t see the various layers).
 *Now press the Play button and if everything went well you should see that TextHUD is visible overtop of the main camera and best of all, it’s completely stationary and free from any noticeable jerky motion when rotating your head quickly.
