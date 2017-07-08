@@ -35,7 +35,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 * Ensure the transform position and rotation are all set to zero.
 * Create a camera and name it “Camera (HUD)” (this is the tracked hud camera that renders nothing of it’s own and has renderTextues fed into it).
 * Remove “GUI Layer”, “Flare Layer” and “Audio Listener” components from the camera as they are not required.
-* Drag that object into and make it a child of the “HUD” object.
+* Drag that camera object into and make it a child of the “HUD” object.
 * Ensure the transform position and rotation are all set to zero.
 * Set the Clear Flags to Don’t Clear so it doesn’t render any colors or sky.
 * Set Culling Mask to Nothing so it doesn’t render any scene objects.
