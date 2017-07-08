@@ -6,6 +6,8 @@ Due to some internal limitation with Unity I found that I was unable to stop Uni
 **Here’s how it works:**
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/SceneLayout.png)
 
+[![Youtube Video](https://img.youtube.com/vi/04LxLfXjQHE/0.jpg)](https://www.youtube.com/watch?v=04LxLfXjQHE)
+
 The “Camera (HUD)” is a tracked camera, meaning that Unity will assume that it should follow the gyro of the HMD. This example shows a way to spoof a tracked camera and feed it renderTextures from our own right and left cameras. Anything that this spoofed head-tracked camera “sees” will be irrelevant and is completely overridden by renderTextures from two stationary (left and right) cameras in a custom stereo camera rig that is constructed in the example. By setting the spoofed camera’s culling mask to “Nothing” and then feeding in the two renderTextures from the right and left eye cameras, the spoofed head-tracked camera will display the two stationary camera's images as it's own left and right eye and display them in the HMD while being overlaid on top of the main camera.
 
 This example allows building a stereo camera rig from the ground up and gives more control over parameters such as camera position/rotation, eye separation, field of view, convergence plane, and even some renderTexture specific stuff such as anti-aliasing and resolution.
