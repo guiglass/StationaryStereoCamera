@@ -16,7 +16,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 **Configure the scene from scratch (OpenVR already installed):**
 
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step1.png)
-**_Step 1 - Scene creating and virtual reality setup._**
+**_Step 1 - Scene creation and virtual reality setup._**
 
 * Create a new Unity project and name it StereoCameraOverlay.
 * Press Ctrl+S and save the scene as “ExampleScene”
@@ -24,6 +24,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 * Navigate to Edit > Project Settings > Player.
 * Check the box “Virtual Reality Supported”.
 * In “Virtual Reality SDKs” ensure OpenVR is the only item in the list.
+
 
 
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step2.png)
@@ -40,6 +41,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 * Set Culling Mask to Nothing so it doesn’t render any scene objects.
 
 
+
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step3.png)
 **_Step 3 - Create and setting up the stationary stereo camera._**
 
@@ -52,6 +54,7 @@ Note that this does support transparency as well as lights and shadows on the HU
 * Set the Clear Flags to solid color, and select a color of black and no alpha (#00000000).
 * Add a new layer called “HUD” (any object on is layer will be visible to these cameras.
 * Set Culling mask to the “HUD” layer only. 
+
 
 
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step4.png)
@@ -67,12 +70,14 @@ Note that this does support transparency as well as lights and shadows on the HU
 *Now that those two cameras have renderTextures attached, Unity will no longer try to  change their positions or any other parameters. So all we have to do now is use those renderTextures as the inputs for our tracked camera that is sending video to the HMD.*
 
 
+
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step5.png)
 **_Step 5 - Adding the StereoCameraController script and linking the two stereo cameras._**
 
 * Place the StereoCameraController.cs script onto the StereoCameras object.
 * Drag each Camera (Left) and Camera (Right) and place them in the script’s camera variables.
 * The other default values are there to be adjusted but should work ok for most projects (as well as this example).
+
 
 
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step6.png)
@@ -83,12 +88,15 @@ Note that this does support transparency as well as lights and shadows on the HU
 * Click the small circle button to the right of “Mat” and select “Default-Particle”.
 
 
+
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step7.png)
 **_Step 7 - Adding the main camera._**
 
 * Create a camera and name it “Camera (eye)” (this is the tracked main camera that renders the world to the HMD).
 * Set the Culling Mask however you wish except make sure that the “HUD” layer is not selected.
+* Set the depth to be lower than the depth of "Camera (HUD)", I am using a value of -1.
 * The rest of that camera’s configuration is totally up to you.
+
 
 
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step8.png)
@@ -99,11 +107,13 @@ Note that this does support transparency as well as lights and shadows on the HU
 * Remember that this camera is stationary (in this example), so you must place all of your HUD object in front of the camera so they are in it’s field of view.
 
 
+
 ![alt tag](https://raw.githubusercontent.com/guiglass/StationaryStereoCamera/master/Step9.png)
 **_Step 9 - Adding some visible world objects._**
 
 * Just as you normally would add objects to your scene, do so and place then anywhere in the scene (I have placed them near my HUD to demonstrate how the two cameras can’t see the various layers).
 * Now press the Play button and if everything went well you should see that TextHUD is visible overtop of the main camera and best of all, it’s completely stationary and free from any noticeable jerky motion when rotating your head quickly.
+
 
 
 Something to consider when it come to lighting is that you may want to manage the Culling Masks for lights and make sure your main world’s lights do not include the HUD layer (especially the Directional Lights and area lamps). Additionally you can add lighting to you HUD layer by setting the lamp’s Culling Mask to only HUD layer.
