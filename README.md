@@ -16,7 +16,7 @@ The “Camera (HUD)” is a tracked camera, meaning that Unity will assume that it s
 
 This example allows building a stereo camera rig from the ground up and gives more control over parameters such as camera position/rotation, eye separation, field of view, convergence plane, and even some renderTexture specific stuff such as anti-aliasing and resolution.
 
-Note that this does support transparency as well as lights and shadows on the HUD layer, so it acts and looks pretty much like any other camera.
+The HUD layer support transparency as well as lights and shadows, so it acts and looks pretty much like any other camera would (except it's fully controllable).
 
 
 **Configure the scene from scratch (OpenVR already installed):**
